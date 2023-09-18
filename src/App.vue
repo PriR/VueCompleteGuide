@@ -1,9 +1,15 @@
 <template>
   <section>
-    <header><h1>My Friends</h1></header>
+    <header>
+      <h1>My Friends</h1>
+    </header>
     <ul>
-      <friend-contact name="Manuel Lorenz" phone-number="12344" email-address="manu@local.com" is-favorite="1"></friend-contact>
-      <friend-contact name="Julie Jonz" phone-number="12323" email-address="julie@local.com" is-favorite="0"></friend-contact>
+      <friend-contact v-for="friend in friends"
+                      :key="friend.id"
+                      :name="friend.name"
+                      :phone-number="friend.phone"
+                      :email-address="friend.email"
+                      :is-favorite="true"></friend-contact>
     </ul>
   </section>
 </template>
@@ -12,10 +18,10 @@
 export default {
   data() {
     return {
-      // friends: [
-      //   { id: 'manuel' , name: 'Manuel Lorenz', phone: '12344', email: 'manu@local.com'},
-      //   { id: 'julie' , name: 'Julie Jonz', phone: '123445', email: 'julie@local.com'}
-      // ]
+      friends: [
+        { id: 'manuel' , name: 'Manuel Lorenz', phone: '12344', email: 'manu@local.com'},
+        { id: 'julie' , name: 'Julie Jonz', phone: '123445', email: 'julie@local.com'}
+      ]
     }
   }
 }
@@ -86,6 +92,4 @@ header {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-}
-
-</style>
+}</style>
