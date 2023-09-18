@@ -12,10 +12,10 @@
 export default {
   data() {
     return {
-      friends: [
-        { id: 'manuel' , name: 'Manuel Lorenz', phone: '12344', email: 'manu@local.com'},
-        { id: 'julie' , name: 'Julie Jonz', phone: '123445', email: 'julie@local.com'}
-      ]
+      // friends: [
+      //   { id: 'manuel' , name: 'Manuel Lorenz', phone: '12344', email: 'manu@local.com'},
+      //   { id: 'julie' , name: 'Julie Jonz', phone: '123445', email: 'julie@local.com'}
+      // ]
     }
   }
 }
