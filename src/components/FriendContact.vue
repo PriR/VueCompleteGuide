@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFavorite ? '(Favorite)' : '' }}</h2>
+    <h2>{{ name }} {{ isFavorite ? '(Favorite)' : '' }}</h2>
     <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">{{ detailsAreVisible ? 'Hide' : 'Show' }} Details</button>
     <ul v-if="detailsAreVisible">
@@ -23,6 +23,10 @@ export default {
     // phoneNumber: String,
     // emailAddress: String,
     // isFavorite: String
+    id: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -44,7 +48,6 @@ export default {
   data() {
     return {
       detailsAreVisible: false,
-      friendIsFavorite: this.isFavorite
     }
   },
   methods: {
@@ -52,7 +55,9 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible
     },
     toggleFavorite() {
-      this.friendIsFavorite = !this.friendIsFavorite
+      // this.friendIsFavorite = !this.friendIsFavorite
+      // this.$emit('toggle-favorite') // allows to emit an event to therefore listen in the parent component
+      this.$emit('toggle-favorite', this.id) // allows to emit an event to therefore listen in the parent component - with arguments for event
     }
   }
 }
